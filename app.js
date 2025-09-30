@@ -1,12 +1,26 @@
 // app.js
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // Importiamo i nostri moduli
 const logger = require('./middleware/logger');
 const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
+
+// Configurazione CORS
+app.use(cors({
+  origin: ['http://localhost:8080', 'http://localhost:8081'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
+
+// Middleware per il parsing del JSON
+app.use(express.json());
+
+// Montiamo le routes sotto /api/contacts
+app.use('/api/contacts', contactRoutes);
 
 // Connessione a MongoDB
 mongoose.connect('mongodb://localhost:27017/rubrica-contatti')

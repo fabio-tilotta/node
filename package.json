@@ -8,10 +8,18 @@
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["api", "rest", "contacts", "node", "express", "mongodb"],
+  "keywords": [
+    "api",
+    "rest",
+    "contacts",
+    "node",
+    "express",
+    "mongodb"
+  ],
   "author": "Il tuo nome",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^8.0.0"
   },

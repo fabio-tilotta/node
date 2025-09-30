@@ -3,7 +3,6 @@ const Contact = require('../models/Contact');
 
 class ContactService {
   
-  //tutti i contatti
   async getAllContacts() {
     try {
       const contacts = await Contact.find().sort({ cognome: 1, nome: 1 }); // Ordina per cognome e nome
@@ -13,7 +12,6 @@ class ContactService {
     }
   }
 
-  // Ottiene un contatto per ID
   async getContactById(id) {
     try {
       const contact = await Contact.findById(id);
